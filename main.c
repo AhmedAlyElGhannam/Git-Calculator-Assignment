@@ -11,7 +11,7 @@ int main(void)
 	float num1, num2;
 	printf("please enter 2 numbers*float numbers if you want*:\n");
 	printf("num1=");
-    scanf(" %f", &num1);	
+  scanf(" %f", &num1);	
 	printf("num2=");
 	scanf(" %f", &num2);
 	printf("the sub of the 2 numbers is =%f", subtract(num1 , num2));
@@ -20,6 +20,19 @@ int main(void)
 
 float subtract(float a, float b)
 {
-	
 	return a-b ;
 }
+
+float divide(float a, float b)
+{
+	if (b == 0)
+		return 0.0;
+
+	return (a / b);
+}
+
+float add(float a, float b)
+{
+	return a + b;
+}
+
