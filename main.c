@@ -8,6 +8,7 @@ float divide(float a, float b);
 
 int main(void)
 {
+	printf("Sum = %.2f",add(2.5,3));
 	printf("Dividing 9.9 over 6.2 yields %f\n", divide(9.9, 6.2));
 	return 1;
 }
@@ -19,3 +20,9 @@ float divide(float a, float b)
 
 	return (a / b);
 }
+
+float add(float a, float b)
+{
+	return a + b;
+}
+
