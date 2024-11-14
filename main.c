@@ -9,8 +9,10 @@ float divide(float a, float b);
 int main(void)
 {
 	float num1, num2;
-	printf("please enter 2 numbers:");
+	printf("please enter 2 numbers*float numbers if you want*:\n");
+	printf("num1=");
     scanf(" %f", &num1);	
+	printf("num2=");
 	scanf(" %f", &num2);
 	printf("the sub of the 2 numbers is =%f", subtract(num1 , num2));
 	return 1;
