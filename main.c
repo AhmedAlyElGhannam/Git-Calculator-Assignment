@@ -8,8 +8,11 @@ float divide(float a, float b);
 
 int main(void)
 {
-	printf("Sum = %.2f",add(2.5,3));
-	printf("Dividing 9.9 over 6.2 yields %f\n", divide(9.9, 6.2));
+	float num1, num2;
+	printf("please enter 2 numbers:");
+    scanf(" %f", &num1);	
+	scanf(" %f", &num2);
+	printf("the sub of the 2 numbers is =%f", subtract(num1 , num2));
 	return 1;
 }
 
@@ -26,3 +29,8 @@ float add(float a, float b)
 	return a + b;
 }
 
+
+float subtract(float a, float b)
+{
+	return a-b ;
+}
