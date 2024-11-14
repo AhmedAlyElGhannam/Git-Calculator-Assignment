@@ -5,10 +5,11 @@ float add(float a, float b);
 float subtract(float a, float b);
 double multiply(float a, float b);
 float divide(float a, float b);
+int Modulus(int a, int b);
 
 int main(void)
 {
-	printf("Dividing 9.9 over 6.2 yields %f\n", divide(9.9, 6.2));
+	printf("8 Mod 3 = %d\n", Modulus(8, 3));
 	return 1;
 }
 
@@ -18,4 +19,12 @@ float divide(float a, float b)
 		return 0.0;
 
 	return (a / b);
+}
+
+int Modulus(int a, int b)
+{
+	if (b == 0)
+		return 0;
+
+	return (a % b);
 }
