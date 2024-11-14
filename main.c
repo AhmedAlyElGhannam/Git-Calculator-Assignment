@@ -9,6 +9,7 @@ int Modulus(int a, int b);
 
 int main(void)
 {
+
 	float num1, num2;
 	printf("please enter 2 numbers*float numbers if you want*:\n");
 	printf("num1=");
@@ -16,7 +17,6 @@ int main(void)
 	printf("num2=");
 	scanf(" %f", &num2);
 	printf("the sub of the 2 numbers is =%f\n", subtract(num1 , num2));
-	printf("8 Mod 3 = %d\n", Modulus(8, 3));
 	return 1;
 }
 
@@ -45,4 +45,9 @@ int Modulus(int a, int b)
 		return 0;
 
 	return (a % b);
+}
+
+double multiply(float a, float b)
+{
+	return (a * b);
 }
