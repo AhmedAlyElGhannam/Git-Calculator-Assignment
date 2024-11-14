@@ -8,5 +8,14 @@ float divide(float a, float b);
 
 int main(void)
 {
+	printf("Dividing 9.9 over 6.2 yields %f\n", divide(9.9, 6.2));
 	return 1;
+}
+
+float divide(float a, float b)
+{
+	if (b == 0)
+		return 0.0;
+
+	return (a / b);
 }
