@@ -3,3 +3,4 @@
 *.hex
 *.elf
 *.exe
+build
