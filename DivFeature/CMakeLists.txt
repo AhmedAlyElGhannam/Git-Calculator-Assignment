@@ -2,7 +2,7 @@
 Cmake_minimum_required(VERSION 3.2)
 
 # set project name + used languages
-project(DivFeature C ASM CXX)
+project(DivFeature C)
 
 # to add directory path 
 include_directories(${PROJECT_SOURCE_DIR}/inc) 
@@ -11,4 +11,4 @@ include_directories(${PROJECT_SOURCE_DIR}/inc)
 file(GLOB DIV_SRC ${PROJECT_SOURCE_DIR}/src/*.c)
 
 # to create a library out of these files
-add_library(div STATIC ${DIV_SRC})
+add_library(DivFeature STATIC ${DIV_SRC})
