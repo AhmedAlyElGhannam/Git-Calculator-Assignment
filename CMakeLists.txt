@@ -1,4 +1,7 @@
+# set minimum CMake version required to run
 cmake_minimum_required(VERSION 3.10)
+
+# set project name + used languages
 project(MyProject VERSION 1.0 LANGUAGES C)
 
 # Set output directories for compiled libraries and executables
@@ -18,8 +21,6 @@ add_executable(main_exec main.c)
 # Link the executable with the library from SubFeature
 target_link_libraries(main_exec PRIVATE mylibrary)
 
-# Optionally, specify additional compiler flags (e.g., for warnings)
-# target_compile_options(main_exec PRIVATE -Wall)
 
 
 
