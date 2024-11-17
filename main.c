@@ -1,11 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Mod.h"
+#include "Sub_Feature.h"
+#include "sum.h"
+#include "Mul.h"
+#include "div.h"
 
 float add(float a, float b);
 float subtract(float a, float b);
 double multiply(float a, float b);
 float divide(float a, float b);
-int Modulus(int a, int b);
 
 int main(void)
 {
@@ -80,14 +84,6 @@ float subtract(float a, float b)
 {
 	
 	return a-b ;
-}
-
-int Modulus(int a, int b)
-{
-	if (b == 0)
-		return 0;
-
-	return (a % b);
 }
 
 double multiply(float a, float b)
