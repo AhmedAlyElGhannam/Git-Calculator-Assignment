@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Mod.h"
+#include "Sub_Feature.h"
+#include "sum.h"
+#include "Mul.h"
+#include "div.h"
 
 float add(float a, float b);
 float subtract(float a, float b);
