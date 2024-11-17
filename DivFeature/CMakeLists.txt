@@ -1,4 +1,14 @@
-#Cmake_minimum_required(3.2)
-project(myapp C ASM CXX) 
-set(C-SOURCE main.c)
-add_executable(${PROJECT_NAME} main.c)
+# set minimum CMake version required to run
+Cmake_minimum_required(VERSION 3.2)
+
+# set project name + used languages
+project(DivFeature C ASM CXX)
+
+# to add directory path 
+include_directories(${PROJECT_SOURCE_DIR}/inc) 
+
+# to add all .c files in src folder
+file(GLOB DIV_SRC ${PROJECT_SOURCE_DIR}/src/*.c)
+
+# to create a library out of these files
+add_library(div STATIC ${DIV_SRC})
