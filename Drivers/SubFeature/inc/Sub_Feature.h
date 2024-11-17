@@ -1,4 +1,4 @@
-#ifdef _SUBFEATURE_H_
+#ifndef _SUBFEATURE_H_
 #define _SUBFEATURE_H_
 
 float subtract(float a, float b);
