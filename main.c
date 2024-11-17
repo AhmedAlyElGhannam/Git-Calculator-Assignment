@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "sum.h"
 
-float add(float a, float b);
+
 float subtract(float a, float b);
 double multiply(float a, float b);
 float divide(float a, float b);
@@ -71,10 +72,6 @@ float divide(float a, float b)
 	return (a / b);
 }
 
-float add(float a, float b)
-{
-	return a + b;
-}
 
 float subtract(float a, float b)
 {
