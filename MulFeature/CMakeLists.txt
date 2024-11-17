@@ -11,4 +11,4 @@ INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/inc)
 file(GLOB MUL_SRC ${PROJECT_SOURCE_DIR}/src/*.c)
 
 #to create a library out of these files
-add_library(Mul_Library STATIC ${MUL_SRC})
+add_library(MulFeature STATIC ${MUL_SRC})
