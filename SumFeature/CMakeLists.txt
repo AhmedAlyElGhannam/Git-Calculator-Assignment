@@ -2,7 +2,7 @@
 Cmake_minimum_required(VERSION 3.2)
 
 # set project name + used languages
-project(SumFeature C ASM CXX)
+project(SumFeature C)
 
 # to add directory path 
 include_directories(${PROJECT_SOURCE_DIR}/inc) 
