@@ -1,28 +1,28 @@
-# set minimum CMake version required to run
-cmake_minimum_required(VERSION 3.10)
 
-# set project name + used languages
-project(MyProject VERSION 1.0 LANGUAGES C)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.29)
 
-# Set output directories for compiled libraries and executables
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+project(Calculator C ASM CXX) 
 
-# Add SubFeature as a subdirectory, which has its own CMakeLists.txt
-add_subdirectory(SubFeature)
+# Add each driver as a subdirectory
+add_subdirectory(Drivers/DivFeature)
+add_subdirectory(Drivers/MulFeature)
+add_subdirectory(Drivers/SumFeature)
+add_subdirectory(Drivers/SubFeature)
+add_subdirectory(Drivers/ModFeature)
 
-# Add the include directory for SubFeature headers
-include_directories(${PROJECT_SOURCE_DIR}/SubFeature/inc)
-
-# Add the executable from main.c
-add_executable(main_exec main.c)
-
-# Link the executable with the library from SubFeature
-target_link_libraries(main_exec PRIVATE mylibrary)
+# Add include directories for each driver
+include_directories(
+    Drivers/DivFeature/inc
+    Drivers/MulFeature/inc
+    Drivers/SumFeature/inc
+    Drivers/SubFeature/inc
+    Drivers/ModFeature/inc
+)
 
 
+# Add the main executable
+add_executable(Calculator main.c)
 
-
-
+# Link all drivers to the main executable
+target_link_libraries(Calculator PRIVATE DivFeature MulFeature SumFeature SubFeature ModFeature)
 

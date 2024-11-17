@@ -1,18 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-#include"Sub_Feature.h"
-
-float add(float a, float b);
-double multiply(float a, float b);
-float divide(float a, float b);
-int Modulus(int a, int b);
+#include "Mod.h"
+#include "Sub_Feature.h"
+#include "sum.h"
+#include "Mul.h"
+#include "div.h"
 
 int main(void)
 {
 	int op ;
 	int flag =0 ;
-	float num1, num2 , res=0.0;
+	float num1, num2;
 	printf("*****welcome Group2 calculator*******\n");
 	do
 	{
@@ -35,9 +33,8 @@ int main(void)
 		           printf("%0.2f + %0.2f = %0.2f\n",num1 , num2 , add(num1 , num2));
 				   break;
 		case 2:
-		           
 		           printf("subtraction operation:\n");
-		           printf("%0.2f - %0.2f = %0.2f\n",num1 , num2 , subtract(num1 , num2);
+		           printf("%0.2f - %0.2f = %0.2f\n",num1 , num2 , subtract(num1 , num2));
 				   break;
 		case 3:
 		           printf("multiplication operation:\n");
@@ -65,29 +62,3 @@ int main(void)
 	return 1;
 }
 
-float divide(float a, float b)
-{
-	if (b == 0)
-		return 0.0;
-
-	return (a / b);
-}
-
-float add(float a, float b)
-{
-	return a + b;
-}
-
-
-int Modulus(int a, int b)
-{
-	if (b == 0)
-		return 0;
-
-	return (a % b);
-}
-
-double multiply(float a, float b)
-{
-	return (a * b);
-}
