@@ -6,11 +6,6 @@
 #include "Mul.h"
 #include "div.h"
 
-float add(float a, float b);
-float subtract(float a, float b);
-double multiply(float a, float b);
-float divide(float a, float b);
-
 int main(void)
 {
 	int op ;
@@ -67,26 +62,3 @@ int main(void)
 	return 1;
 }
 
-float divide(float a, float b)
-{
-	if (b == 0)
-		return 0.0;
-
-	return (a / b);
-}
-
-float add(float a, float b)
-{
-	return a + b;
-}
-
-float subtract(float a, float b)
-{
-	
-	return a-b ;
-}
-
-double multiply(float a, float b)
-{
-	return (a * b);
-}
