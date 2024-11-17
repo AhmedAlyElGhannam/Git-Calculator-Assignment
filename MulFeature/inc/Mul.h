@@ -1,5 +1,5 @@
 /*
- *  FILEE  :  Mul.h
+ *  FILE  :  Mul.h
  *  Date   :  Nov 17, 2024
  *  Author :  Mariam Hossam
  */
