@@ -1,4 +1,3 @@
-
 CMAKE_MINIMUM_REQUIRED(VERSION 3.2)
 
 project(Calculator C ASM CXX) 
@@ -18,7 +17,6 @@ include_directories(
     Drivers/SubFeature/inc
     Drivers/ModFeature/inc
 )
-
 
 # Add the main executable
 add_executable(Calculator main.c)

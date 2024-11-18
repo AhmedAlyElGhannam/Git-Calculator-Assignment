@@ -11,49 +11,49 @@ int main(void)
 	int op ;
 	int flag =0 ;
 	float num1, num2;
-	printf("*****welcome Group2 calculator*******\n");
+	printf("*****Welcome to Group2 Simple Calculator App*******\n");
 	do
 	{
-	printf("please choose the disired operation code from the menu\n");
-    printf("1 for addation '+'\n");
-    printf("2 for subtract '-'\n");
-    printf("3 for multiplication '*'\n");
-    printf("4 for division '/'\n");	
-	printf("5 for Modulus %% \n");
-	printf("your choise: ");
+	printf("Please choose the desired operation code from the menu:\n");
+    printf("1. Addation '+'\n");
+    printf("2. Subtarction '-'\n");
+    printf("3. Multiplication '*'\n");
+    printf("4. Division '/'\n");	
+	printf("5 Modulus %% \n");
+	printf("Please enter your choice: ");
 	scanf(" %d", &op);
-	printf("please enter the first operand :");
+	printf("Please enter the first operand :");
 	scanf(" %f", &num1);
-	printf("please enter the second operand :");
+	printf("Please enter the second operand :");
 	scanf(" %f", &num2);
 	switch(op)
 	{
 		case 1:
-		           printf("Addation operation:\n");
+		           printf("Addation Operation:\n");
 		           printf("%0.2f + %0.2f = %0.2f\n",num1 , num2 , add(num1 , num2));
 				   break;
 		case 2:
-		           printf("subtraction operation:\n");
+		           printf("Subtraction Operation:\n");
 		           printf("%0.2f - %0.2f = %0.2f\n",num1 , num2 , subtract(num1 , num2));
 				   break;
 		case 3:
-		           printf("multiplication operation:\n");
+		           printf("Multiplication Operation:\n");
 		           printf("%0.2f x %0.2f = %0.2lf\n",num1 , num2 , multiply(num1 , num2));
 				   break;
 		case 4:
-		           printf("division operation:\n");
+		           printf("Division Operation:\n");
 		           printf("%0.2f / %0.2f = %0.2f\n",num1 , num2 , divide(num1 , num2));
 				   break;
 		case 5:
-		           printf("Modulus operation:\n");
+		           printf("Modulus Operation:\n");
 		           printf("%d %% %d = %d\n",(int)num1 , (int)num2 , Modulus((int)num1 , (int)num2));
 				   break;
 	    default :
-		            printf("wrong choice !!!!!!!!!!!\n");
+		            printf("Wrong choice !!!!!!!!!!!\n");
 	}
-	printf("thank you for using our calculator ;) \n");
-	printf("if you want to make another operation please press 0 , and if not press any other key \n");
-	printf("your choise: ");
+	printf("Thank you for using our Calculator ;) \n");
+	printf("If you want to make another operation, Please press 0. and If you don't, press any other key \n");
+	printf("Please enter your choice: ");
 	scanf(" %d", &flag);
 }while(flag ==0);
     printf("\nGood BYE  !!!!!!!!!!:)\n");
