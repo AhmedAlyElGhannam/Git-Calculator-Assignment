@@ -1,5 +1,4 @@
-# set minimum CMake version required to run
-Cmake_minimum_required(VERSION 3.2)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.2) 
 
 # set project name + used languages
 project(SumFeature C)
@@ -11,5 +10,5 @@ include_directories(${PROJECT_SOURCE_DIR}/inc)
 file(GLOB SUM_SRC ${PROJECT_SOURCE_DIR}/src/*.c)
 
 # to create a library out of these files
-add_library(sum STATIC ${SUM_SRC})
+add_library(SumFeature STATIC ${SUM_SRC})
 
