@@ -2,7 +2,7 @@
 # What is the Sub Feature?
 >Subtraction is one of the basic arithmetic operations. It involves taking one number (the subtrahend) away from another number (the minuend). The result of subtraction is called the difference.
 
-For example:In the equation
+For example: In the equation
 ```
 8 - 3 = 5
 ```
@@ -21,9 +21,9 @@ float subtract(float a, float b)
     return a - b;
 }
 ```
-*Parameters:
-	*The function subtract accepts two arguments, a and b, which are both of type float. This means that the function is designed to work with floating-point numbers (numbers that may have decimals).
-*Subtraction:
-	*Inside the function, it simply subtracts `b` from `a` using the `-` operator.
-*Return Value:
-	*The result of the subtraction (a floating-point number) is returned to the caller.
+* Parameters:
+	* The function subtract accepts two arguments, a and b, which are both of type float. This means that the function is designed to work with floating-point numbers (numbers that may have decimals).
+* Subtraction:
+	* Inside the function, it simply subtracts `b` from `a` using the `-` operator.
+* Return Value:
+	* The result of the subtraction (a floating-point number) is returned to the caller.
