@@ -38,8 +38,38 @@ The function will subtract `3.2` from `10.5` and return `7.3` (i.e., `10.5 - 3.2
 if you want to read more about the subtractin check this [Subtraction](https://www.mathsisfun.com/numbers/subtraction.html).
 
 # CMakeLists.txt explanation
->this file is used to configure a CMake project that will build a static library from source files in a directory`SUB_FEATUE.c`. Here is a detailed explanation of each line:
-```
+>This CMakeLists.txt file sets up a CMake project for building a static library called SubFeature from source files in a directory `SUB_FEATUE.c`  Here is a detailed explanation of each line:
+```cmake
 CMAKE_MINIMUM_REQUIRED(VERSION 3.2)
 ```
-This line specifies the minimum version of CMake that is required to configure and build the project. In this case, the minimum version is 3.2. This ensures that the features and syntax used in the CMakeLists.txt file are compatible with CMake version 3.2 or later.
+* This line specifies the minimum version of CMake that is required to configure and build the project. In this case, the minimum version is 3.2. This ensures that the features and syntax used in the CMakeLists.txt file are compatible with CMake version 3.2 or later.
+```cmake
+project(SubFeature C)
+```
+This line defines the name of the project and the programming language used. In this case:
+* `SubFeature` is the name of the project.
+* `C` specifies that the project will use the `C programming language`. This tells CMake to look for `*.c` source files and set up the proper flags for C compilation.
+```cmake
+include_directories(${PROJECT_SOURCE_DIR}/inc)
+```
+This line adds a directory to the list of directories that the compiler will search for header files (`#include` files). Specifically:
+* `${PROJECT_SOURCE_DIR}` is a CMake variable that contains the absolute path to the root directory of the project.
+* `/inc` is the relative path to the inc directory within the project, which is assumed to contain the header files for this project.
+* `include_directories` tells CMake to add the specified directory `(${PROJECT_SOURCE_DIR}/inc)` to the include path when compiling the C source files. This means that the compiler will be able to find header files located in this directory.
+```cmake
+file(GLOB Sub_SRC ${PROJECT_SOURCE_DIR}/src/*.c)
+```
+This line uses the `file(GLOB ...)` command to collect all C source files `(*.c)` in the src folder of the project:
+* `file(GLOB ...)` is used to create a list of files that match a given pattern, in this case, all `*.c` files in the src directory.
+* `Sub_SRC` is a variable that will hold the list of source files found by the `GLOB` command. These files will be compiled as part of the project.
+* `${PROJECT_SOURCE_DIR}/src/*.c` specifies the absolute path to the src directory (using ${PROJECT_SOURCE_DIR}) and then matches all files with the .c extension in that directory.
+```cmake
+
+add_library(SubFeature STATIC ${Sub_SRC})
+```
+This line creates a `static library` from the `C source` files found in the previous step:
+* `add_library` is a CMake command that builds a library from the provided source files.
+* `SubFeature` is the name of the library being created.
+* `STATIC` specifies that the library will be a static library (as opposed to a shared library or dynamic library).
+* `${Sub_SRC}` is the list of .c files collected in the previous step. These files will be compiled and linked into the static library SubFeature.
+
