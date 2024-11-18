@@ -1,4 +1,4 @@
-# Hello to Sub Feature Documentation
+# Hello to Sub Feature Documentation:)
 # What is the Sub Feature?
 >Subtraction is one of the basic arithmetic operations. It involves taking one number (the subtrahend) away from another number (the minuend). The result of subtraction is called the difference.
 
