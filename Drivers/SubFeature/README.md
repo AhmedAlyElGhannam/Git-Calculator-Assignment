@@ -34,4 +34,5 @@ float result = subtract(10.5, 3.2);
 
 ```
 The function will subtract `3.2` from `10.5` and return `7.3` (i.e., `10.5 - 3.2 = 7.3`).
-if you want to read more about the subtractin check this ->[Subtraction](https://www.mathsisfun.com/numbers/subtraction.html)
+
+if you want to read more about the subtractin check this [Subtraction](https://www.mathsisfun.com/numbers/subtraction.html)
