@@ -73,3 +73,4 @@ This line creates a `static library` from the `C source` files found in the prev
 * `STATIC` specifies that the library will be a static library (as opposed to a shared library or dynamic library).
 * `${Sub_SRC}` is the list of .c files collected in the previous step. These files will be compiled and linked into the static library SubFeature.
 
+This configuration generated a static library that can be linked into other projects or applications.
