@@ -13,7 +13,7 @@ For example: In the equation
 #include "Sub_Feature.h"
 
 ```
-*`#include "Sub_Feature.h"`: This line tells the preprocessor to include the contents of the `Sub_Feature.h` header file.This allows the compiler to recognize functions or variables that are defined elsewhere in the project.
+* `#include "Sub_Feature.h"`: This line tells the preprocessor to include the contents of the `Sub_Feature.h` header file.This allows the compiler to recognize functions or variables that are defined elsewhere in the project.
 
 ```c
 float subtract(float a, float b)
