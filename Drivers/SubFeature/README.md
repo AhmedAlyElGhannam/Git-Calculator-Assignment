@@ -11,7 +11,7 @@ In the equation
 8 is the minuend, 3 is the subtrahend, and 5 is the difference.
 
 #Breakdown of what each line in the driver `SUB_FEATUE.c` do
-```
+```c
 #include "Sub_Feature.h"
 
 ```
