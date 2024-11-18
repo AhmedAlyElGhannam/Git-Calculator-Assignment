@@ -38,4 +38,8 @@ The function will subtract `3.2` from `10.5` and return `7.3` (i.e., `10.5 - 3.2
 if you want to read more about the subtractin check this [Subtraction](https://www.mathsisfun.com/numbers/subtraction.html).
 
 # CMakeLists.txt explanation
->this file is used to configure a CMake project that will build a static library from source files in a directory. Here is a detailed explanation of each line:
+>this file is used to configure a CMake project that will build a static library from source files in a directory`SUB_FEATUE.c`. Here is a detailed explanation of each line:
+```
+CMAKE_MINIMUM_REQUIRED(VERSION 3.2)
+```
+This line specifies the minimum version of CMake that is required to configure and build the project. In this case, the minimum version is 3.2. This ensures that the features and syntax used in the CMakeLists.txt file are compatible with CMake version 3.2 or later.
