@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.29) 
+CMAKE_MINIMUM_REQUIRED(VERSION 3.2) 
 
 # set project name + used languages
 project(ModFeature C)
