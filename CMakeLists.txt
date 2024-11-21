@@ -22,4 +22,3 @@ add_executable(Calculator main.c)
 
 # Link all drivers to the main executable
 target_link_libraries(Calculator PRIVATE DivFeature MulFeature SumFeature SubFeature ModFeature)
-

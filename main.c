@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "configuration.h"
 #include "Mod.h"
 #include "Sub_Feature.h"
 #include "sum.h"
@@ -28,10 +29,12 @@ int main(void)
 	scanf(" %f", &num2);
 	switch(op)
 	{
+		#ifdef ADD
 		case 1:
 		           printf("Addation Operation:\n");
 		           printf("%0.2f + %0.2f = %0.2f\n",num1 , num2 , add(num1 , num2));
 				   break;
+		#endif
 		case 2:
 		           printf("Subtraction Operation:\n");
 		           printf("%0.2f - %0.2f = %0.2f\n",num1 , num2 , subtract(num1 , num2));
