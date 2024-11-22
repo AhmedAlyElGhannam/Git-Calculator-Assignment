@@ -14,26 +14,27 @@ set(CONFIG_SCRIPT ${CMAKE_SOURCE_DIR}/config.py)
 # 8 => removes definition for MUL  
 # 9 => removes definition for DIV  
 # 0 => removes definition for MOD  
-macro( configFeature INPUT
+macro(configFeature INPUT)
+    # Validate the input argument (must be a number between 0 and 9)
+    if(NOT INPUT MATCHES "^[0-9]$")
+        message(FATAL_ERROR "Invalid INPUT value: ${INPUT}. Must be a number between 0 and 9.")
+    endif()
+
     # to execute the command that runs the .py script and generate configuration.h (considered the output)
     add_custom_command(
-        OUTPUT ${OUTPUT_FILE} # this is the header file
-        COMMAND python3 ${CONFIG_SCRIPT} ${INPUT} # this executes the script with the passed argument
-        DEPENDS ${CONFIG_SCRIPT} # to make sure to re-execute it in case it was modified 
+        OUTPUT ${OUTPUT_FILE}  # this is the header file
+        COMMAND python3 ${CONFIG_SCRIPT} ${INPUT}  # this executes the script with the passed argument
+        DEPENDS ${CONFIG_SCRIPT} ${INPUT}  # re-execute if script or input changes
     )
 
     # creates a custom target
     add_custom_target(
-        configTarget    # custom target name
-        ALL             # makes sure this custom target is updated upon every build
-        DEPENDS         # makes sure that the custom target won't be created unless configuration.h is created 
-        ${OUTPUT_FILE}  # file name that will be considered a custom target
-
+        configTarget            # custom target name
+        DEPENDS ${OUTPUT_FILE}  # make sure this custom target depends on the output file
     )
 
-    # makes sure that the app depends on my custom target
+    # make sure the app depends on the configTarget
     add_dependencies(
-        Calculator configTarget
-    )
-)
+        DivFeature configTarget
+        ) 
 endmacro()

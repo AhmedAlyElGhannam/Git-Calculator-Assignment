@@ -5,7 +5,9 @@
 #include "Sub_Feature.h"
 #include "sum.h"
 #include "Mul.h"
-#include "div.h"
+#ifdef DIV
+	#include "div.h"
+#endif
 
 int main(void)
 {
@@ -44,9 +46,13 @@ int main(void)
 		           printf("%0.2f x %0.2f = %0.2lf\n",num1 , num2 , multiply(num1 , num2));
 				   break;
 		case 4:
-		           printf("Division Operation:\n");
-		           printf("%0.2f / %0.2f = %0.2f\n",num1 , num2 , divide(num1 , num2));
-				   break;
+			#ifdef DIV           
+				printf("Division Operation:\n");
+		        printf("%0.2f / %0.2f = %0.2f\n",num1 , num2 , divide(num1 , num2));
+				break;
+			#else
+				printf("Please Purchase Feature To Unlock!\n");
+			#endif
 		case 5:
 		           printf("Modulus Operation:\n");
 		           printf("%d %% %d = %d\n",(int)num1 , (int)num2 , Modulus((int)num1 , (int)num2));
