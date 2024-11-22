@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "configuration.h"
 #include "Mod.h"
 #include "Sub_Feature.h"
 #include "sum.h"
 #include "Mul.h"
-#ifdef DIV
-	#include "div.h"
-#endif
+#include "div.h"
+
 
 int main(void)
 {

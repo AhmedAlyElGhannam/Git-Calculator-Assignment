@@ -1,40 +1,26 @@
-# declare output file as configuration.h (located in project root)
+# Define the configuration header file path
 set(OUTPUT_FILE ${CMAKE_SOURCE_DIR}/configuration.h)
-# declare configuration script as config.py (located in project root)
+
+# Define the Python script path
 set(CONFIG_SCRIPT ${CMAKE_SOURCE_DIR}/config.py)
 
-# macro to configure features by passing the right input
-# 1 => #define ADD
-# 2 => #define SUB
-# 3 => #define MUL
-# 4 => #define DIV
-# 5 => #define MOD
-# 6 => removes definition for ADD  
-# 7 => removes definition for SUB  
-# 8 => removes definition for MUL  
-# 9 => removes definition for DIV  
-# 0 => removes definition for MOD  
+# Macro to configure features by passing the right input
 macro(configFeature INPUT)
-    # Validate the input argument (must be a number between 0 and 9)
-    if(NOT INPUT MATCHES "^[0-9]$")
-        message(FATAL_ERROR "Invalid INPUT value: ${INPUT}. Must be a number between 0 and 9.")
-    endif()
-
-    # to execute the command that runs the .py script and generate configuration.h (considered the output)
+    # Run the Python script to generate/update the configuration.h file
     add_custom_command(
-        OUTPUT ${OUTPUT_FILE}  # this is the header file
-        COMMAND python3 ${CONFIG_SCRIPT} ${INPUT}  # this executes the script with the passed argument
-        DEPENDS ${CONFIG_SCRIPT} ${INPUT}  # re-execute if script or input changes
+        OUTPUT ${OUTPUT_FILE}  # Specify the output file
+        COMMAND ${Python_EXECUTABLE} ${CONFIG_SCRIPT} "${INPUT}"  # Run the Python script with the passed argument
+        DEPENDS ${CONFIG_SCRIPT}  # Re-run if the Python script changes
+        COMMENT "Generating or updating ${OUTPUT_FILE} using ${CONFIG_SCRIPT} with input=${INPUT}"
+        VERBATIM
     )
 
-    # creates a custom target
+    # Create a custom target to ensure that configuration.h is always up to date
     add_custom_target(
-        configTarget            # custom target name
-        DEPENDS ${OUTPUT_FILE}  # make sure this custom target depends on the output file
+        configTarget
+        DEPENDS ${OUTPUT_FILE}  # Make sure the target depends on the updated configuration.h
     )
 
-    # make sure the app depends on the configTarget
-    add_dependencies(
-        DivFeature configTarget
-        ) 
+    # Ensure that the DivFeature library depends on the custom target
+    add_dependencies(${PROJECT_NAME} configTarget)
 endmacro()
