@@ -22,7 +22,15 @@ UNDEFINE_MACRO_MAP = {
 HEADER_FILE = "configuration.h"
 
 HEADER_GUARD_START = "#ifndef CONFIGURATION_H_"
+HEADER_GUARD_DEFINE = "#define CONFIGURATION_H_"
 HEADER_GUARD_END = "#endif"
+
+def create_header_file_if_missing(filepath):
+    """Create the header file with header guards if it doesn't exist."""
+    if not os.path.exists(filepath):
+        with open(filepath, "w") as file:
+            file.writelines([f"{HEADER_GUARD_START}\n", f"{HEADER_GUARD_DEFINE}\n", f"{HEADER_GUARD_END}\n"])
+        print(f"Created {filepath} with header guards.")
 
 def read_header_file(filepath):
     """Read the content of the header file."""
@@ -52,6 +60,7 @@ def find_header_guard_indices(lines):
             end_index = i
 
     return start_index, end_index
+
 def add_macro_to_header(arg):
     """Add the macro corresponding to the argument to the header file."""
     if arg not in DEFINE_MACRO_MAP:
@@ -70,7 +79,7 @@ def add_macro_to_header(arg):
     # Check if the macro is already defined
     if macro_already_defined(lines, macro):
         print(f"Macro {macro} is already defined. No changes made.")
-        sys.exit(0)
+        return
 
     # Insert the macro definition before the #endif
     insertion_point = end_index
@@ -96,7 +105,7 @@ def remove_macro_from_header(arg):
     # Check if the macro is defined
     if not macro_already_defined(lines, macro):
         print(f"Macro {macro} is not defined. No changes made.")
-        sys.exit(0)
+        return
 
     # Remove the macro definition
     lines = [line for line in lines if f"#define {macro}" not in line]
@@ -107,6 +116,9 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python update_header.py <arg>")
         sys.exit(1)
+
+    # Ensure the header file exists and has header guards
+    create_header_file_if_missing(HEADER_FILE)
 
     arg = sys.argv[1]
 

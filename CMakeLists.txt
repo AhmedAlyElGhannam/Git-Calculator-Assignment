@@ -21,4 +21,5 @@ include_directories(
 add_executable(Calculator main.c)
 
 # Link all drivers to the main executable
+# Used PRIVATE here cuz Calculator is the final output and no other target will use it 
 target_link_libraries(Calculator PRIVATE DivFeature MulFeature SumFeature SubFeature ModFeature)
