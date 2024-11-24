@@ -11,6 +11,7 @@ add_subdirectory(Drivers/ModFeature)
 
 # Add include directories for each driver
 include_directories(
+    Drivers/DivFeature/inc
     Drivers/MulFeature/inc
     Drivers/SumFeature/inc
     Drivers/SubFeature/inc
