@@ -14,6 +14,14 @@ div_on:
 div_off:
 	cmake -S . -B build -DADD=ON -DSUB=ON -DMUL=ON -DDIV=OFF -DMOD=ON
 	cmake --build build
+# this build rule enables mul feature only
+mul_on:
+	cmake -S . -B build -DADD=OFF -DSUB=OFF -DMUL=ON -DDIV=OFF -DMOD=OFF
+	cmake --build build
+# this build rule disables mul feature only
+mul_off:
+	cmake -S . -B build -DADD=ON -DSUB=ON -DMUL=OFF -DDIV=ON -DMOD=ON
+	cmake --build build
 # this build rule removes build directory to do a clean build
 clean:
 	rm -r build
