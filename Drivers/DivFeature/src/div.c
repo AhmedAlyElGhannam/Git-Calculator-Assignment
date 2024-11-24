@@ -1,4 +1,3 @@
-#include "div.h"
 #include "configuration.h"
 #include <stdio.h>
 
@@ -13,5 +12,7 @@ float divide(float a, float b)
 float divide(float a, float b)
 {
 	printf("Purchase Feature to Unlock!\n");
+	printf("Press CTRL + C to Exit The Program and Launch It Again\n");
+	while(1);
 }
 #endif
