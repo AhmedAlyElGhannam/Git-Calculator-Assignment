@@ -5,7 +5,8 @@
  */
  
 #include "configuration.h"
- 
+#include <stdio.h>
+
 #ifdef MUL
 /***************    Function Implementation    ***************/
 double multiply(float a, float b)
