@@ -12,6 +12,8 @@ show_options() {
     echo "  none      - removes all features from product"
     echo "  div_on    - enables div feature only"
     echo "  div_off   - disables div feature only"
+    echo "  sub_on    - enables sub feature only"
+    echo "  sub_off   - disables sub feature only"
     echo "  clean     - removes build directory to do a clean build"
     echo "  launch    - launches the app after building is done"
 }
@@ -42,6 +44,14 @@ case "$command" in
         ;;
     div_off) # disables div feature only
         cmake -S . -B build -DADD=ON -DSUB=ON -DMUL=ON -DDIV=OFF -DMOD=ON
+        cmake --build build
+        ;;
+    sub_on) # enables sub feature only
+        cmake -S . -B build -DADD=OFF -DSUB=ON -DMUL=OFF -DDIV=OFF -DMOD=OFF
+        cmake --build build
+        ;;
+    sub_off) # disables sub feature only
+        cmake -S . -B build -DADD=ON -DSUB=OFF -DMUL=ON -DDIV=ON -DMOD=ON
         cmake --build build
         ;;
     clean) # removes build directory to do a clean build

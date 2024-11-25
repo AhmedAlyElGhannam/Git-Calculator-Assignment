@@ -14,6 +14,15 @@ div_on:
 div_off:
 	cmake -S . -B build -DADD=ON -DSUB=ON -DMUL=ON -DDIV=OFF -DMOD=ON
 	cmake --build build
+# this build rule enables sub feature only
+sub_on:
+	cmake -S . -B build -DADD=OFF -DSUB=ON -DMUL=OFF -DDIV=OFF -DMOD=OFF
+	cmake --build build
+# this build rule disables sub feature only
+sub_off:
+	cmake -S . -B build -DADD=ON -DSUB=OFF -DMUL=ON -DDIV=ON -DMOD=ON
+	cmake --build build
+
 # this build rule removes build directory to do a clean build
 clean:
 	rm -r build
