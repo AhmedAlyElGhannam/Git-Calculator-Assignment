@@ -12,18 +12,22 @@ find_package(Python3 REQUIRED)
 macro(configFeature MODULE INPUT)
 
     # to execute the command that runs the .py script and generate configuration.h (considered the output)
-    add_custom_command(
-        OUTPUT ${OUTPUT_FILE}  # specify the output file (configuration.h)
-        COMMAND ${CMAKE_COMMAND} -E env python3 ${CONFIG_SCRIPT} ${INPUT}  # run the Python script with the passed argument using CMAKE command (platform independent)
-        COMMENT "Generating or updating ${OUTPUT_FILE} using ${CONFIG_SCRIPT} with input=${INPUT}" # prints this when the command is executed
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR} # this specifies the folder the script will be executed in (in build to put configuration.h there)
-        VERBATIM # take every command literally and do not overcook
-    )
+    # add_custom_command(
+    #     OUTPUT ${OUTPUT_FILE}  # specify the output file (configuration.h)
+    #     COMMAND ${CMAKE_COMMAND} -E env python3 ${CONFIG_SCRIPT} ${INPUT}  # run the Python script with the passed argument using CMAKE command (platform independent)
+    #     COMMENT "Generating or updating ${OUTPUT_FILE} using ${CONFIG_SCRIPT} with input=${INPUT}" # prints this when the command is executed
+    #     WORKING_DIRECTORY ${CMAKE_BINARY_DIR} # this specifies the folder the script will be executed in (in build to put configuration.h there)
+    #     VERBATIM # take every command literally and do not overcook
+    # )
 
     # create a custom target that depends on the output file (configuration.h)
     add_custom_target(
         "${MODULE}-Target"      # custom target name changes depending on the MODULE argument 
-        DEPENDS ${OUTPUT_FILE}  # make sure the target depends on the generated configuration.h
+        COMMAND ${CMAKE_COMMAND} -E env python3 ${CONFIG_SCRIPT} ${INPUT}  # run the Python script with the passed argument using CMAKE command (platform independent)
+        COMMENT "Generating or updating ${OUTPUT_FILE} using ${CONFIG_SCRIPT} with input=${INPUT}" # prints this when the command is executed
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR} # this specifies the folder the script will be executed in (in build to put configuration.h there)
+        VERBATIM # take every command literally and do not overcook
+    
     )
 
     # ensures that the module library that calls this macro depends on the custom target aka configuration.h
