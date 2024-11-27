@@ -11,7 +11,7 @@ find_package(Python3 REQUIRED)
 # macro to configure features by passing the right input to config.py
 macro(configFeature MODULE INPUT)
 
-    # # to execute the command that runs the .py script and generate configuration.h (considered the output)
+    # to execute the command that runs the .py script and generate configuration.h (considered the output)
     # add_custom_command(
     #     OUTPUT ${OUTPUT_FILE}  # specify the output file (configuration.h)
     #     COMMAND ${CMAKE_COMMAND} -E env python3 ${CONFIG_SCRIPT} ${INPUT}  # run the Python script with the passed argument using CMAKE command (platform independent)
@@ -25,6 +25,7 @@ macro(configFeature MODULE INPUT)
     #     "${MODULE}-Target"      # custom target name changes depending on the MODULE argument 
     #     DEPENDS ${OUTPUT_FILE}  # make sure the target depends on the generated configuration.h
     # )
+
 
     add_custom_target(
         "${MODULE}-Target"  # custom target name changes depending on the MODULE argument

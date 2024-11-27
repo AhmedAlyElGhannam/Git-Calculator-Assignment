@@ -29,3 +29,12 @@ clean:
 # this build rule launches the app after building is done
 launch:
 	./build/Calculator
+
+# this build rule enables sum feature only
+sum_on:
+	cmake -S . -B build -DADD=ON -DSUB=OFF -DMUL=OFF -DDIV=OFF -DMOD=OFF
+	cmake --build build
+# this build rule disables sum feature only
+sum_off:
+	cmake -S . -B build -DADD=OFF -DSUB=ON -DMUL=ON -DDIV=ON -DMOD=ON
+	cmake --build build
