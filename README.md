@@ -31,6 +31,14 @@ Available options:
   none      - removes all features from product
   div_on    - enables div feature only
   div_off   - disables div feature only
+  mul_on    - enables mul feature only
+  mul_off   - disables mul feature only
+  sub_on    - enables sub feature only
+  sub_off   - disables sub feature only
+  mod_on    - enables mod feature only
+  mod_off   - disables mod feature only
+  add_on    - enables add feature only
+  add_off   - disables add feature only
   clean     - removes build directory to do a clean build
   launch    - launches the app after building is done
 ```
