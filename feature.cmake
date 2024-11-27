@@ -29,10 +29,10 @@ macro(configFeature MODULE INPUT)
 
     add_custom_target(
         "${MODULE}-Target"  # custom target name changes depending on the MODULE argument
-        COMMAND ${CMAKE_COMMAND} -E env python3 ${CONFIG_SCRIPT} ${INPUT}  # Run the Python script with the passed argument using CMAKE command (platform independent)
+        COMMAND ${CMAKE_COMMAND} -E env python3 ${CONFIG_SCRIPT} ${INPUT}  # run the Python script with the passed argument using CMAKE command (platform independent)
         COMMENT "Generating or updating ${OUTPUT_FILE} using ${CONFIG_SCRIPT} with input=${INPUT}"  # Prints this when the command is executed
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}  # This specifies the folder the script will be executed in (in build to put configuration.h there)
-        VERBATIM  # Take every command literally and do not overcook
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}  # this specifies the folder the script will be executed in (in build to put configuration.h there)
+        VERBATIM  # take every command literally and do not overcook
     )
 
     # ensures that the module library that calls this macro depends on the custom target aka configuration.h
